@@ -1,0 +1,37 @@
+# ----------------------------------------------------------------------
+# |
+# |  event_periodic.yaml
+# |
+# |  David Brownell <db@DavidBrownell.com>
+# |      2023-03-21 19:27:18
+# |
+# ----------------------------------------------------------------------
+# |
+# |  Copyright David Brownell 2023
+# |  Distributed under the Boost Software License, Version 1.0. See
+# |  accompanying file LICENSE_1_0.txt or copy at
+# |  http://www.boost.org/LICENSE_1_0.txt.
+# |
+# ----------------------------------------------------------------------
+name: "on periodic"
+run-name: ${{ github.run_number }} [${{ github.actor }}] on ${{ github.ref_name }}
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Once a day at 12am UTC
+
+jobs:
+  _c3eae5cb-bbdc-49e7-87a4-f5a42ccdbde1:
+    name: "Validate (${{ github.ref_name }})"
+    uses: davidbrownell/v4-DavidBrownell_MiscScriptsMixin/.github/workflows/validate.yaml@CI-latest
+    with:
+      repo_branch: ${{ github.ref_name }}
+
+  _e0bb94b0-8788-409c-9ca9-e2ad9c4d4e77:
+    name: "Validate with Dependencies (${{ github.ref_name }})"
+    uses: davidbrownell/v4-DavidBrownell_MiscScriptsMixin/.github/workflows/validate_with_dependencies.yaml@CI-latest
+    with:
+      repo_branch: ${{ github.ref_name }}
+
+    needs:
+      - _c3eae5cb-bbdc-49e7-87a4-f5a42ccdbde1

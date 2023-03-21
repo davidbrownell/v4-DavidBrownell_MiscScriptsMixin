@@ -1,0 +1,40 @@
+# ----------------------------------------------------------------------
+# |
+# |  event_on_pr.yaml
+# |
+# |  David Brownell <db@DavidBrownell.com>
+# |      2023-03-21 19:27:03
+# |
+# ----------------------------------------------------------------------
+# |
+# |  Copyright David Brownell 2023
+# |  Distributed under the Boost Software License, Version 1.0. See
+# |  accompanying file LICENSE_1_0.txt or copy at
+# |  http://www.boost.org/LICENSE_1_0.txt.
+# |
+# ----------------------------------------------------------------------
+name: "on pull request"
+run-name: "${{ github.run_number }} [${{ github.actor }}] ${{ github.head_ref }} -> ${{ github.base_ref }}"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  _a42d0c3a-59e9-419c-bb12-c197202afba2:
+    name: "Validate (target: ${{ github.base_ref }})"
+    uses: davidbrownell/v4-DavidBrownell_MiscScriptsMixin/.github/workflows/validate.yaml@CI-latest
+    with:
+      repo_branch: ${{ github.head_ref }}
+
+  _e15f7e29-a16c-4e4b-aee0-d99c1006530e:
+    name: "Validate Pull Request (target: ${{ github.base_ref }})"
+    uses: davidbrownell/v4-Common_Foundation/.github/workflows/callable_validate_pull_request.yaml@CI-latest
+    with:
+      job_name_prefix: "v4-DavidBrownell_MiscScriptsMixin"
+      is_mixin_repository: true
+      repo_name: davidbrownell/v4-DavidBrownell_MiscScriptsMixin
+      repo_branch: ${{ github.head_ref }}
+      os: ubuntu-latest
+      configuration: None
