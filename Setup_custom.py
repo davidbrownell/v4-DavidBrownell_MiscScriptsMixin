@@ -33,12 +33,7 @@ from RepositoryBootstrap import Constants                                   # ty
 
 
 # ----------------------------------------------------------------------
-# Uncomment the decorator below to make this repository a mixin repository.
-# Mixin repositories can not be activated on their own and cannot have tool
-# or version specifications. Mixin repositories are valuable because they
-# can provide scripts or tools that augment other repositories when activated.
-#
-# @Configuration.MixinRepository
+@Configuration.MixinRepository
 def GetConfigurations() -> Union[
     Configuration.Configuration,
     Dict[
