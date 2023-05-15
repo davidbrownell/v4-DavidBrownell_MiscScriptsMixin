@@ -23,7 +23,7 @@ on:
 jobs:
   _c7f6736f-d26a-4c42-ad34-44057d7f8adb:
     name: "v4-DavidBrownell_MiscScriptsMixin"
-    uses: davidbrownell/v4-DavidBrownell_MiscScriptsMixin/.github/workflows/validate.yaml@CI-latest
+    uses: davidbrownell/v4-DavidBrownell_MiscScriptsMixin/.github/workflows/validate.yaml@CI-v1
     with:
       repo_branch: ${{ inputs.repo_branch }}
       bootstrap_branch_overrides: "v4-DavidBrownell_MiscScriptsMixin:${{ inputs.repo_branch }}"

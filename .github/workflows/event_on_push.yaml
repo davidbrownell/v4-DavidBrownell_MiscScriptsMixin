@@ -26,7 +26,7 @@ concurrency: "on_push-${{ github.ref_name }}"
 jobs:
   _d102916f-56b5-4de1-95cf-f232e8dc9972:
     name: "Validate (${{ github.ref_name }})"
-    uses: davidbrownell/v4-DavidBrownell_MiscScriptsMixin/.github/workflows/validate_with_dependencies.yaml@CI-latest
+    uses: davidbrownell/v4-DavidBrownell_MiscScriptsMixin/.github/workflows/validate_with_dependencies.yaml@CI-v1
     with:
       repo_branch: ${{ github.ref_name }}
 

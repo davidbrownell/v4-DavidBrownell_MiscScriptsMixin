@@ -24,13 +24,13 @@ on:
 jobs:
   _a42d0c3a-59e9-419c-bb12-c197202afba2:
     name: "Validate (target: ${{ github.base_ref }})"
-    uses: davidbrownell/v4-DavidBrownell_MiscScriptsMixin/.github/workflows/validate.yaml@CI-latest
+    uses: davidbrownell/v4-DavidBrownell_MiscScriptsMixin/.github/workflows/validate.yaml@CI-v1
     with:
       repo_branch: ${{ github.head_ref }}
 
   _e15f7e29-a16c-4e4b-aee0-d99c1006530e:
     name: "Validate Pull Request (target: ${{ github.base_ref }})"
-    uses: davidbrownell/v4-Common_Foundation/.github/workflows/callable_validate_pull_request.yaml@CI-latest
+    uses: davidbrownell/v4-Common_Foundation/.github/workflows/callable_validate_pull_request.yaml@CI-v1
     with:
       job_name_prefix: "v4-DavidBrownell_MiscScriptsMixin"
       is_mixin_repository: true
