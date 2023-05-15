@@ -22,7 +22,7 @@ on:
 jobs:
   _c7849079-99f5-40ae-b31d-47b704ec5365:
     name: "Validate (${{ github.ref_name }})"
-    uses: davidbrownell/v4-DavidBrownell_MiscScriptsMixin/.github/workflows/validate_with_dependencies.yaml@CI-latest
+    uses: davidbrownell/v4-DavidBrownell_MiscScriptsMixin/.github/workflows/validate_with_dependencies.yaml@CI-v1
     with:
       repo_branch: ${{ github.ref_name }}
       bootstrap_branch_overrides: "v4-DavidBrownell_MiscScriptsMixin:${{ inputs.repo_branch }}"
